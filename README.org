@@ -20,6 +20,8 @@ early to submit or inappropriate for the upstream repository.
 
 ** User Channels
 
+*** Add to user channels
+
 Add this channel to your list of channels in =~/.config/guix/channels.scm=:
 
 #+begin_src scheme
@@ -29,6 +31,14 @@ Add this channel to your list of channels in =~/.config/guix/channels.scm=:
         (url "https://github.com/guix-janelia/guix-janelia.git")
         (branch "main"))
        %default-channels)
+
+#+end_src
+
+*** Update guix
+
+#+begin_src sh
+
+guix pull
 
 #+end_src
 
@@ -45,6 +55,8 @@ guix describe -f channels > channels.scm
 #+end_src
 
 *** Example channels.scm
+
+Modify the commit ID to match the version of software the project needs
 
 #+begin_src scheme
 
@@ -64,7 +76,7 @@ guix describe -f channels > channels.scm
        (url "https://github.com/guix-janelia/guix-janelia.git")
        (branch "main")
        (commit
-        "a285dafbec63d937fc5c628ad9297e5614649866")))
+        "212d7031f431cba50b2ac34a007b11b2c01d6d26")))
 
 #+end_src
 
