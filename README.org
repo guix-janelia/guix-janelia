@@ -18,13 +18,60 @@ early to submit or inappropriate for the upstream repository.
 
 * Usage
 
+** User Channels
+
 Add this channel to your list of channels in =~/.config/guix/channels.scm=:
 
 #+begin_src scheme
 
 (cons* (channel
         (name 'guix-janelia)
-        (url "https://github.com/guix-janelia/guix-janelia"))
+        (url "https://github.com/guix-janelia/guix-janelia.git")
+        (branch "main"))
        %default-channels)
+
+#+end_src
+
+** Project Channels
+
+Add this channel to your list of channels in =./channels.scm=:
+
+*** Create channels.scm in project directory
+
+#+begin_src sh
+
+guix describe -f channels > channels.scm
+
+#+end_src
+
+*** Example channels.scm
+
+#+begin_src scheme
+
+(list (channel
+       (name 'guix)
+       (url "https://git.savannah.gnu.org/git/guix.git")
+       (branch "master")
+       (commit
+        "a4667135284db2f0956a87fc7444c866b046ad31")
+       (introduction
+        (make-channel-introduction
+         "9edb3f66fd807b096b48283debdcddccfea34bad"
+         (openpgp-fingerprint
+          "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))
+      (channel
+       (name 'guix-janelia)
+       (url "https://github.com/guix-janelia/guix-janelia.git")
+       (branch "main")
+       (commit
+        "a285dafbec63d937fc5c628ad9297e5614649866")))
+
+#+end_src
+
+*** Example of how to use a project channels.scm
+
+#+begin_src sh
+
+guix time-machine -C channels.scm -- shell --container -m manifest.scm
 
 #+end_src

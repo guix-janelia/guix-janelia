@@ -23,7 +23,7 @@
     (description "KiCad python module for interpreting generic netlists.")
     (license license:gpl3)))
 
-(define python-kicad-bom
+(define-public python-kicad-bom
   (package
    (name "python-kicad-bom")
    (version "4.0.0")
