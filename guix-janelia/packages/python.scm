@@ -3,10 +3,11 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix download)
   #:use-module (guix build-system python)
+  #:use-module (gnu packages python-build)
   )
 
 
-(define-public python-kicad-netlist-reader
+(define python-kicad-netlist-reader
   (package
     (name "python-kicad-netlist-reader")
     (version "5.1.11")
@@ -22,4 +23,22 @@
     (description "KiCad python module for interpreting generic netlists.")
     (license license:gpl3)))
 
-python-kicad-netlist-reader
+(define python-kicad-bom
+  (package
+   (name "python-kicad-bom")
+   (version "4.0.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (pypi-uri "kicad_bom" version))
+     (sha256
+      (base32 "1y922yjwxadhzg7gg6sif0ppjp87f3zbi278n16mj1f6sbk0sm0y"))))
+   (build-system python-build-system)
+   (propagated-inputs (list
+                       python-kicad-netlist-reader))
+   (home-page "https://github.com/janelia-pypi/kicad_bom")
+   (synopsis
+    "KiCad Python module for generating bill of materials in multiple formats.")
+   (description
+    "KiCad Python module for generating bill of materials in multiple formats.")
+   (license license:gpl3)))

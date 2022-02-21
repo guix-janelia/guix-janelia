@@ -1,0 +1,30 @@
+#+TITLE: guix-janelia
+#+AUTHOR: Peter Polidoro
+#+EMAIL: peter@polidoro.io
+
+* Library Information
+- Name :: guix-janelia
+- Version :: 1.0.0
+- License :: BSD
+- URL :: https://github.com/guix-janelia/guix-janelia
+- Author :: Peter Polidoro
+- Email :: peter@polidoro.io
+
+** Description
+
+This is the[[https://www.janelia.org/][Janelia Research Campus]]
+[[https://guix.gnu.org][GNU Guix]] channel for packages that are either too
+early to submit or inappropriate for the upstream repository.
+
+* Usage
+
+Add this channel to your list of channels in =~/.config/guix/channels.scm=:
+
+#+begin_src scheme
+
+(cons* (channel
+        (name 'guix-janelia)
+        (url "https://github.com/guix-janelia/guix-janelia"))
+       %default-channels)
+
+#+end_src
