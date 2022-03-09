@@ -84,42 +84,42 @@
    (description "Async JSON-RPC 2.0 protocol + server powered by asyncio")
    (license license:expat)))
 
-(define-public python-platformio
-  (package
-   (name "python-platformio")
-   (version "5.2.5")
-   (source
-    (origin
-     (method url-fetch)
-     (uri (pypi-uri "platformio" version))
-     (sha256
-      (base32 "1bn488yfhjxkbm9d32q9cnmd3rd6996shdsxnhp9bhbsl7w1y3da"))))
-   (build-system python-build-system)
-   (propagated-inputs
-    (list python-aiofiles
-          python-ajsonrpc
-          python-bottle
-          python-click
-          python-colorama
-          python-marshmallow
-          python-pyelftools
-          python-pyserial
-          python-requests
-          python-semantic-version
-          python-starlette
-          python-tabulate
-          python-uvicorn
-          python-wsproto
-          python-zeroconf))
-   (home-page "https://platformio.org")
-   (synopsis
-    "A professional collaborative platform for embedded development. Cross-platform IDE and Unified Debugger. Static Code Analyzer and Remote Unit Testing. Multi-platform and Multi-architecture Build System. Firmware File Explorer and Memory Inspection. IoT, Arduino, CMSIS, ESP-IDF, FreeRTOS, libOpenCM3, mbedOS, Pulp OS, SPL, STM32Cube, Zephyr RTOS, ARM, AVR, Espressif (ESP8266/ESP32), FPGA, MCS-51 (8051), MSP430, Nordic (nRF51/nRF52), NXP i.MX RT, PIC32, RISC-V, STMicroelectronics (STM8/STM32), Teensy")
-   (description
-    "This package provides a professional collaborative platform for embedded
-development.  Cross-platform IDE and Unified Debugger.  Static Code Analyzer and
-Remote Unit Testing.  Multi-platform and Multi-architecture Build System.
-Firmware File Explorer and Memory Inspection.  IoT, Arduino, CMSIS, ESP-IDF,
-FreeRTOS, libOpenCM3, mbedOS, Pulp OS, SPL, STM32Cube, Zephyr RTOS, ARM, AVR,
-Espressif (ESP8266/ESP32), FPGA, MCS-51 (8051), MSP430, Nordic (nRF51/nRF52),
-NXP i.MX RT, PIC32, RISC-V, STMicroelectronics (STM8/STM32), Teensy")
-   (license license:asl2.0)))
+;; (define-public python-platformio
+;;   (package
+;;    (name "python-platformio")
+;;    (version "5.2.5")
+;;    (source
+;;     (origin
+;;      (method url-fetch)
+;;      (uri (pypi-uri "platformio" version))
+;;      (sha256
+;;       (base32 "1bn488yfhjxkbm9d32q9cnmd3rd6996shdsxnhp9bhbsl7w1y3da"))))
+;;    (build-system python-build-system)
+;;    (propagated-inputs
+;;     (list python-aiofiles
+;;           python-ajsonrpc
+;;           python-bottle
+;;           python-click
+;;           python-colorama
+;;           python-marshmallow
+;;           python-pyelftools
+;;           python-pyserial
+;;           python-requests
+;;           python-semantic-version
+;;           python-starlette
+;;           python-tabulate
+;;           python-uvicorn
+;;           python-wsproto
+;;           python-zeroconf))
+;;    (home-page "https://platformio.org")
+;;    (synopsis
+;;     "A professional collaborative platform for embedded development. Cross-platform IDE and Unified Debugger. Static Code Analyzer and Remote Unit Testing. Multi-platform and Multi-architecture Build System. Firmware File Explorer and Memory Inspection. IoT, Arduino, CMSIS, ESP-IDF, FreeRTOS, libOpenCM3, mbedOS, Pulp OS, SPL, STM32Cube, Zephyr RTOS, ARM, AVR, Espressif (ESP8266/ESP32), FPGA, MCS-51 (8051), MSP430, Nordic (nRF51/nRF52), NXP i.MX RT, PIC32, RISC-V, STMicroelectronics (STM8/STM32), Teensy")
+;;    (description
+;;     "This package provides a professional collaborative platform for embedded
+;; development.  Cross-platform IDE and Unified Debugger.  Static Code Analyzer and
+;; Remote Unit Testing.  Multi-platform and Multi-architecture Build System.
+;; Firmware File Explorer and Memory Inspection.  IoT, Arduino, CMSIS, ESP-IDF,
+;; FreeRTOS, libOpenCM3, mbedOS, Pulp OS, SPL, STM32Cube, Zephyr RTOS, ARM, AVR,
+;; Espressif (ESP8266/ESP32), FPGA, MCS-51 (8051), MSP430, Nordic (nRF51/nRF52),
+;; NXP i.MX RT, PIC32, RISC-V, STMicroelectronics (STM8/STM32), Teensy")
+;;    (license license:asl2.0)))
