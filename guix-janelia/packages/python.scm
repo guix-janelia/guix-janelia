@@ -123,3 +123,63 @@
 ;; Espressif (ESP8266/ESP32), FPGA, MCS-51 (8051), MSP430, Nordic (nRF51/nRF52),
 ;; NXP i.MX RT, PIC32, RISC-V, STMicroelectronics (STM8/STM32), Teensy")
 ;;    (license license:asl2.0)))
+
+(define-public python-sre-yield
+  (package
+    (name "python-sre-yield")
+    (version "1.2")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (pypi-uri "sre_yield" version))
+        (sha256
+          (base32 "12kv3mvdr22g2v9wfr5aabh1f58s817dbh8mrlfzxzxs7hm1lkz9"))))
+    (build-system python-build-system)
+    (home-page "https://github.com/google/sre_yield")
+    (synopsis "Expands a regular expression to its possible matches")
+    (description "Expands a regular expression to its possible matches")
+    (license #f)))
+
+(define-public python-serial-interface
+  (package
+    (name "python-serial-interface")
+    (version "2.1.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (pypi-uri "serial_interface" version))
+        (sha256
+          (base32 "0hj8f6rs7a0d5ggq5a6vwdmwzylh64yvzmqrdw0iqka9i0srrym9"))))
+    (build-system python-build-system)
+    (propagated-inputs (list python-pyserial))
+    (home-page "https://github.com/janelia-pypi/serial_interface_python")
+    (synopsis
+      "Extends serial.Serial to add methods such as auto discovery of available serial ports in Linux, Windows, and Mac OS X")
+    (description
+      "Extends serial.Serial to add methods such as auto discovery of available serial
+ports in Linux, Windows, and Mac OS X")
+    (license license:bsd-3)))
+
+(define-public python-modular-client
+  (package
+    (name "python-modular-client")
+    (version "8.4.0")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (pypi-uri "modular_client" version))
+        (sha256
+          (base32 "1b1cv3m8fcbzrg0nmrh7l48d0pkz7apkxfx4mvy3004jwzkr4f41"))))
+    (build-system python-build-system)
+    (propagated-inputs
+      (list python-inflection
+            python-pyserial
+            python-serial-interface
+            python-sre-yield))
+    (home-page "https://github.com/janelia-pypi/modular_client_python")
+    (synopsis
+      "Modular device Python client interface for communicating with and calling remote methods on modular device servers.")
+    (description
+      "Modular device Python client interface for communicating with and calling remote
+methods on modular device servers.")
+    (license license:bsd-3)))
