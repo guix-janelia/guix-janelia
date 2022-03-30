@@ -79,6 +79,7 @@
         (sha256
           (base32 "12kv3mvdr22g2v9wfr5aabh1f58s817dbh8mrlfzxzxs7hm1lkz9"))))
     (build-system python-build-system)
+    (arguments `(#:tests? #f))
     (home-page "https://github.com/google/sre_yield")
     (synopsis "Expands a regular expression to its possible matches")
     (description "Expands a regular expression to its possible matches")
