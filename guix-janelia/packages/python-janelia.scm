@@ -75,13 +75,13 @@ methods on modular device servers.")
 (define-public python-serial-interface
   (package
    (name "python-serial-interface")
-   (version "2.1.2")
+   (version "2.1.3")
    (source
     (origin
      (method url-fetch)
      (uri (pypi-uri "serial_interface" version))
      (sha256
-      (base32 "1x5f5hjy4a3q5fnd4656ywjrgg4qi6g0qxi1fn7cjp3yg0gwhvar"))))
+      (base32 "0mrdzhk7di0ka5qrhq09nlg2scygp4x9mjb06iyw1gv744q5qr9f"))))
    (build-system python-build-system)
    (propagated-inputs (list python-pyserial))
    (home-page "https://github.com/janelia-pypi/serial_interface_python")
@@ -90,4 +90,5 @@ methods on modular device servers.")
    (description
     "Extends serial.Serial to add methods such as auto discovery of available serial
 ports in Linux, Windows, and Mac OS X")
-   (license license:bsd-3)))
+   (license license:bsd-3))
+  )
