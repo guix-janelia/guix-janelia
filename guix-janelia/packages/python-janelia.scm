@@ -51,26 +51,26 @@
   )
 
 (define-public python-modular-client
-  (package
+ (package
     (name "python-modular-client")
-    (version "8.4.0")
+    (version "8.4.1")
     (source
-      (origin
-        (method url-fetch)
-        (uri (pypi-uri "modular_client" version))
-        (sha256
-          (base32 "1b1cv3m8fcbzrg0nmrh7l48d0pkz7apkxfx4mvy3004jwzkr4f41"))))
+     (origin
+      (method url-fetch)
+      (uri (pypi-uri "modular_client" version))
+      (sha256
+       (base32 "1d25ra3cd7xladfkjnfxx7mx74and1nx90c1s0viwxd1r095fcpr"))))
     (build-system python-build-system)
     (propagated-inputs
-      (list python-inflection
-            python-pyserial
-            python-serial-interface
-            python-sre-yield))
+     (list python-inflection
+           python-pyserial
+           python-serial-interface
+           python-sre-yield))
     (home-page "https://github.com/janelia-pypi/modular_client_python")
     (synopsis
-      "Modular device Python client interface for communicating with and calling remote methods on modular device servers.")
+     "Modular device Python client interface for communicating with and calling remote methods on modular device servers.")
     (description
-      "Modular device Python client interface for communicating with and calling remote
+     "Modular device Python client interface for communicating with and calling remote
 methods on modular device servers.")
     (license license:bsd-3)))
 
