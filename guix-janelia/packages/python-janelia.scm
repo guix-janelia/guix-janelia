@@ -50,6 +50,24 @@
    (license license:gpl3))
   )
 
+(define python-lickport-array-interface
+  (package
+   (name "python-lickport-array-interface")
+   (version "0.5.0")
+   (source
+    (origin
+     (method url-fetch)
+     (uri (pypi-uri "lickport_array_interface" version))
+     (sha256
+      (base32 "131d98j2s6a0z0i07438y84vjs98v4nzppfyk39p8fd8b9dwkwlq"))))
+   (build-system python-build-system)
+   (propagated-inputs (list python-modular-client))
+   (home-page "https://github.com/janelia-pypi/lickport_array_interface_python")
+   (synopsis "Lickport array interface.")
+   (description "Lickport array interface.")
+   (license license:bsd-3))
+  )
+
 (define-public python-modular-client
   (package
    (name "python-modular-client")
