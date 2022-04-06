@@ -12,6 +12,34 @@
   #:use-module (guix build-system python)
   )
 
+(define-public python-quart
+  (package
+    (name "python-quart")
+    (version "0.17.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "Quart" version))
+       (sha256
+        (base32 "0h4n2dwzmqifya1razp9s7ppr4ra23ljac9v7sl039rzp3c17wic"))))
+    (build-system python-build-system)
+    (propagated-inputs
+     (list hypercorn
+           python-aiofiles
+           python-blinker
+           python-click
+           python-itsdangerous
+           python-jinja2
+           python-markupsafe
+           python-toml
+           python-werkzeug))
+    (home-page "https://gitlab.com/pgjones/quart/")
+    (synopsis "Python ASGI web microframework with the same API as Flask")
+    (description
+     "This package provides a Python ASGI web microframework with the same API as
+Flask")
+    (license license:expat)))
+
 (define-public python-ajsonrpc
   (package
    (name "python-ajsonrpc")
@@ -23,6 +51,11 @@
      (sha256
       (base32 "17x1a4r4l428mhwn53abki9gzdzq3halyr4lj48fw3dzy0caq6vr"))))
    (build-system python-build-system)
+   (propagated-inputs
+    (list python-quart
+          python-sanic
+          python-tornado
+          ))
    (home-page "https://github.com/pavlov99/ajsonrpc")
    (synopsis "Async JSON-RPC 2.0 protocol + server powered by asyncio")
    (description "Async JSON-RPC 2.0 protocol + server powered by asyncio")
@@ -79,7 +112,7 @@
         (sha256
           (base32 "12kv3mvdr22g2v9wfr5aabh1f58s817dbh8mrlfzxzxs7hm1lkz9"))))
     (build-system python-build-system)
-    (arguments `(#:tests? #f))
+    (propagated-inputs (list python-nose))
     (home-page "https://github.com/google/sre_yield")
     (synopsis "Expands a regular expression to its possible matches")
     (description "Expands a regular expression to its possible matches")
