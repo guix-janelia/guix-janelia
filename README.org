@@ -99,7 +99,7 @@ Temporarily add foo to the bottom of bar.scm
 
 #+begin_src sh
 
-guix package -f bar.scm
+guix package -f bar.scm -p /tmp/profile
 
 #+end_src
 

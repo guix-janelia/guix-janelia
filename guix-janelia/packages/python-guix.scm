@@ -6,6 +6,7 @@
   #:use-module (gnu packages python-check)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages python-web)
+  #:use-module (gnu packages check)
   #:use-module (guix gexp)
   #:use-module (guix packages)
   #:use-module (guix download)
