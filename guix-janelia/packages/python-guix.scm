@@ -135,3 +135,20 @@ Flask")
    (synopsis "The little ASGI library that shines.")
    (description "The little ASGI library that shines.")
    (license license:bsd-3)))
+
+(define-public python-flatten-json
+  (package
+    (name "python-flatten-json")
+    (version "0.1.13")
+    (source
+      (origin
+        (method url-fetch)
+        (uri (pypi-uri "flatten_json" version))
+        (sha256
+          (base32 "007m28gfs7pmz2rqqjxpial6skzw26hrfi8vrdy9agi9x0rj6dgf"))))
+    (build-system python-build-system)
+    (propagated-inputs (list python-six))
+    (home-page "https://github.com/amirziai/flatten")
+    (synopsis "Flatten JSON objects")
+    (description "Flatten JSON objects")
+    (license license:expat)))
