@@ -87,3 +87,30 @@ Modify the commit ID to match the version of software the project needs
 guix time-machine -C channels.scm -- shell --container -m manifest.scm
 
 #+end_src
+* Development
+
+** Add New Package
+
+Add foo package definition to bar.scm
+
+** Test New Package
+
+Temporarily add foo to the bottom of bar.scm
+
+#+begin_src sh
+
+guix package -f bar.scm
+
+#+end_src
+
+Remove foo from bottom of bar.scm
+
+** Stage and Commit and Push Changes
+
+- Run magit to stage changes and commit
+- run yas-minor-mode-on
+- run yas-reload-all to reload snippets
+- run yas-insert-snippet and choose guix-commit-message-add-package
+- push changes to remote repository
+
+
