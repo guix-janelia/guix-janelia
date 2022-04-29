@@ -72,3 +72,30 @@
    (description "The little ASGI library that shines.")
    (license license:bsd-3)))
 
+  (package
+    (name "python-vitables")
+    (version "3.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "ViTables" version))
+       (sha256
+        (base32 "1vk80a8jbg0phxgf31rnm7gq34mllv7hb5h0bypz4kv7n3150iln"))))
+    (build-system python-build-system)
+    (propagated-inputs
+     (list python-numexpr
+           python-numpy
+           python-pyqt
+           python-qtpy
+           python-tables))
+    (arguments
+     `(#:tests? #f))
+    (home-page "https://vitables.org")
+    (synopsis "GUI for browsing PyTables and HDF5 files")
+    (description "ViTables is a GUI for browsing and editing files in both
+PyTables and HDF5 formats. ViTables capabilities include easy navigation
+through the data hierarchy, displaying of real data and its associated
+metadata, a simple, yet powerful, browsing of multidimensional data and much
+more. As a viewer, one of the greatest strengths of ViTables is its ability to
+display very large datasets.")
+    (license license:gpl3)))
