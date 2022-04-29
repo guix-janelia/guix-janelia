@@ -6,6 +6,7 @@
   #:use-module (gnu packages python-check)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages python-web)
+  #:use-module (gnu packages qt)
   #:use-module (gnu packages check)
   #:use-module (guix gexp)
   #:use-module (guix packages)
@@ -72,6 +73,7 @@
    (description "The little ASGI library that shines.")
    (license license:bsd-3)))
 
+(define-public python-vitables
   (package
     (name "python-vitables")
     (version "3.0.2")
