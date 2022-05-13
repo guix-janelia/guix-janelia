@@ -50,7 +50,7 @@
    (license license:gpl3))
   )
 
-(define python-lickport-array-interface
+(define-public python-lickport-array-interface
   (package
    (name "python-lickport-array-interface")
    (version "1.0.7")
