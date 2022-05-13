@@ -65,7 +65,7 @@ Modify the commit ID to match the version of software the project needs
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "3ac90f92a0ba147e555a548e2bd077f5533b7a8c")
+          "7f7cc042083a759f9b136761f8f9f95ed87563ed")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -76,7 +76,7 @@ Modify the commit ID to match the version of software the project needs
         (url "https://github.com/guix-janelia/guix-janelia.git")
         (branch "main")
         (commit
-          "60e56246006948e95429fcdda36594b9ce1f9b35")))
+          "20e7823ad29e5d226866cd8fcee57461f1cabc70")))
 
 #+end_src
 
@@ -87,23 +87,24 @@ Modify the commit ID to match the version of software the project needs
 guix time-machine -C channels.scm -- shell --container -m manifest.scm
 
 #+end_src
+
 * Development
 
 ** Add New Package
 
-Add foo package definition to bar.scm
+Add foo package definition to python-janelia.scm
 
 ** Test New Package
 
-Temporarily add foo to the bottom of bar.scm
+Temporarily add foo to the bottom of python-janelia.scm
 
 #+begin_src sh
 
-guix package -f bar.scm -p /tmp/profile
+guix package -f guix-janelia/packages/python-janelia.scm -p /tmp/profile
 
 #+end_src
 
-Remove foo from bottom of bar.scm
+Remove foo from bottom of python-janelia.scm
 
 ** Stage and Commit and Push Changes
 

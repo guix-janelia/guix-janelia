@@ -53,13 +53,13 @@
 (define python-lickport-array-interface
   (package
    (name "python-lickport-array-interface")
-   (version "0.5.0")
+   (version "1.0.7")
    (source
     (origin
      (method url-fetch)
      (uri (pypi-uri "lickport_array_interface" version))
      (sha256
-      (base32 "131d98j2s6a0z0i07438y84vjs98v4nzppfyk39p8fd8b9dwkwlq"))))
+      (base32 "1q6d8pkra4xgrdhxkmkjgci0aj13k5dz1kxy944sscd6s0xiy7na"))))
    (build-system python-build-system)
    (propagated-inputs (list python-modular-client))
    (home-page "https://github.com/janelia-pypi/lickport_array_interface_python")
