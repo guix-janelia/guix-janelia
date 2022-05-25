@@ -1,4 +1,4 @@
-(define-module (guix-janelia packages python-guix)
+(define-module (guix-janelia packages python-xyz)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages)
   #:use-module (gnu packages python)
