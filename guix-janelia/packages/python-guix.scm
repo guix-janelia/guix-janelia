@@ -122,3 +122,19 @@ the project is to support the most common parts of the CiA 301 standard in a
 simple Pythonic interface. It is mainly targeted for testing and automation
 tasks rather than a standard compliant master implementation.")
     (license license:expat)))
+
+(define-public python-progress
+  (package
+    (name "python-progress")
+    (version "1.6")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "progress" version))
+       (sha256
+        (base32 "1k9lpb7lqr6mywpnqcz71y6qny54xlgprdp327za2gy0nnc6xj69"))))
+    (build-system python-build-system)
+    (home-page "http://github.com/verigak/progress/")
+    (synopsis "Progress reporting bars for Python")
+    (description "Progress reporting bars for Python")
+    (license license:isc)))
