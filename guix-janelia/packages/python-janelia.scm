@@ -10,7 +10,7 @@
   #:use-module (guix download)
   #:use-module (guix utils)
   #:use-module (guix build-system python)
-  #:use-module (guix-janelia packages python-guix)
+  #:use-module (guix-janelia packages python-xyz)
   )
 
 (define-public python-kicad-bom
