@@ -9,42 +9,10 @@
   #:use-module (guix-janelia packages python-xyz)
   )
 
-(define-public west-janelia
-  (package
-    (name "west-janelia")
-    (version "0.13.1")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (pypi-uri "west" version))
-       (sha256
-        (base32
-         "1hw9qas8ry8prn24iqka8kw2nv7ndxr95mvwr5lww53w2sr7p807"))))
-    (propagated-inputs
-     (list python-colorama
-           python-packaging
-           python-pykwalify
-           python-pyyaml
-           python-pyelftools
-           python-canopen
-           python-progress
-           python-psutil))
-    (build-system python-build-system)
-    (home-page "https://github.com/zephyrproject-rtos/west")
-    (synopsis "Zephyr RTOS Project meta-tool")
-    (description "West is the swiss-army knife command line tool of the Zephyr
-project.  Its built-in commands provide a multiple repository management
-system with features inspired by Google’s Repo tool and Git submodules.  West
-simplifies configuration and is also pluggable: you can write your own west
-\"extension commands\" which add additional features to west.  Zephyr uses
-this feature to provide conveniences for building applications, flashing and
-debugging them, and more.")
-    (license license:expat)))
-
 (define-public python-pylink-square
   (package
     (name "python-pylink-square")
-    (version "0.12.0")
+    (version "0.13.0")
     (source
      ;; The tests suite appears to be incomplete in the PyPI archive.
      (origin
@@ -67,7 +35,64 @@ debugging them, and more.")
                              python-psutil
                              python-six
                              libjaylink))
-    (home-page "http://www.github.com/Square/pylink")
-    (synopsis "Python interface for SEGGER J-Link.")
-    (description "Python interface for SEGGER J-Link.")
+    (home-page "https://www.github.com/Square/pylink")
+    (synopsis "Python interface for SEGGER J-Link")
+    (description "Python interface for debugging and flash programming via
+the SEGGER J-Link debug probe.")
+    (license license:asl2.0)))
+
+(define-public zephyr
+  (package
+    (name "zephyr")
+    (version "3.0.0")
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/zephyrproject-rtos/zephyr")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0w0pi91gvaw9k2r267kpc1ryd74v19iq5ysn4j7pf4g2069gbgxf"))))
+    (propagated-inputs
+     (list cmake
+           python
+
+      python-colorama
+           python-packaging
+           python-pykwalify
+           python-pyyaml
+
+           ;; the following dependencies are not needed for west directly, but
+           ;; they are needed to build zephyr projects using west. In the
+           ;; future, these could be moved to a separate zephyr package
+
+           ;; these dependencies are listed in zephyr requirements-base.txt
+           python-pyelftools
+           python-canopen
+           python-progress
+           python-psutil
+           python-pylink-square
+           python-anytree
+           python-intelhex
+
+           ;; these dependencies are listed in zephyr requirements-build-test.txt
+           python-ply
+           python-gcovr
+           python-coverage
+           python-pytest
+           python-mypy
+           python-mock
+           ))
+    (build-system copy-build-system)
+    (home-page "https://github.com/zephyrproject-rtos/zephyr")
+    (synopsis "Zephyr RTOS Project main repository")
+    (description "The Zephyr Project is a scalable real-time operating
+system (RTOS) supporting multiple hardware architectures, optimized for resource
+constrained devices, and built with security in mind.  The Zephyr OS is based on
+a small-footprint kernel designed for use on resource-constrained systems: from
+simple embedded environmental sensors and LED wearables to sophisticated smart
+watches and IoT wireless gateways.  The Zephyr kernel supports multiple
+architectures, including ARM (Cortex-A, Cortex-R, Cortex-M), Intel x86, ARC,
+Nios II, Tensilica Xtensa, and RISC-V, SPARC, MIPS, and a large number of
+supported boards.")
     (license license:asl2.0)))
