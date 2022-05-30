@@ -9,37 +9,37 @@
   #:use-module (guix-janelia packages python-xyz)
   )
 
-(define-public python-pylink-square
-  (package
-   (name "python-pylink-square")
-   (version "0.13.0")
-   (source
-    ;; The tests suite appears to be incomplete in the PyPI archive.
-    (origin
-     (method git-fetch)
-     (uri (git-reference
-           (url "http://www.github.com/Square/pylink")
-           (commit (string-append "v" version))))
-     (file-name (git-file-name name version))
-     (sha256
-      (base32 "1g4chq36z678n2rkh9rikjn1bcgyq1isa5q3yd29fpvcx72ahza8"))))
-   (build-system python-build-system)
-   (arguments
-    `(#:phases (modify-phases %standard-phases
-                              (add-after 'unpack 'patch-setup
-                                         (lambda _
-                                           (substitute* "setup.py"
-                                                        (("mock == 2.0.0") "mock")))))))
-   (native-inputs (list python-mock))
-   (propagated-inputs (list python-future
-                            python-psutil
-                            python-six
-                            libjaylink))
-   (home-page "https://www.github.com/Square/pylink")
-   (synopsis "Python interface for SEGGER J-Link")
-   (description "Python interface for debugging and flash programming via
-the SEGGER J-Link debug probe.")
-   (license license:asl2.0)))
+;; (define-public python-pylink-square
+;;   (package
+;;    (name "python-pylink-square")
+;;    (version "0.13.0")
+;;    (source
+;;     ;; The tests suite appears to be incomplete in the PyPI archive.
+;;     (origin
+;;      (method git-fetch)
+;;      (uri (git-reference
+;;            (url "http://www.github.com/Square/pylink")
+;;            (commit (string-append "v" version))))
+;;      (file-name (git-file-name name version))
+;;      (sha256
+;;       (base32 "1g4chq36z678n2rkh9rikjn1bcgyq1isa5q3yd29fpvcx72ahza8"))))
+;;    (build-system python-build-system)
+;;    (arguments
+;;     `(#:phases (modify-phases %standard-phases
+;;                               (add-after 'unpack 'patch-setup
+;;                                          (lambda _
+;;                                            (substitute* "setup.py"
+;;                                                         (("mock == 2.0.0") "mock")))))))
+;;    (native-inputs (list python-mock))
+;;    (propagated-inputs (list python-future
+;;                             python-psutil
+;;                             python-six
+;;                             libjaylink))
+;;    (home-page "https://www.github.com/Square/pylink")
+;;    (synopsis "Python interface for SEGGER J-Link")
+;;    (description "Python interface for debugging and flash programming via
+;; the SEGGER J-Link debug probe.")
+;;    (license license:asl2.0)))
 
 ;; (define-public zephyr
 ;;   (package
