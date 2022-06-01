@@ -65,7 +65,7 @@ Modify the commit ID to match the version of software the project needs
         (url "https://git.savannah.gnu.org/git/guix.git")
         (branch "master")
         (commit
-          "7f7cc042083a759f9b136761f8f9f95ed87563ed")
+          "16a0aea02deacd9872490f9328474a442a85380d")
         (introduction
           (make-channel-introduction
             "9edb3f66fd807b096b48283debdcddccfea34bad"
@@ -76,7 +76,7 @@ Modify the commit ID to match the version of software the project needs
         (url "https://github.com/guix-janelia/guix-janelia.git")
         (branch "main")
         (commit
-          "20e7823ad29e5d226866cd8fcee57461f1cabc70")))
+          "2c29af558fa4d5df682985c18fe778b4345ef2fa")))
 
 #+end_src
 
