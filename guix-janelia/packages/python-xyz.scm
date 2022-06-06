@@ -101,19 +101,3 @@ metadata, a simple, yet powerful, browsing of multidimensional data and much
 more. As a viewer, one of the greatest strengths of ViTables is its ability to
 display very large datasets.")
     (license license:gpl3)))
-
-(define-public python-progress
-  (package
-    (name "python-progress")
-    (version "1.6")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (pypi-uri "progress" version))
-       (sha256
-        (base32 "1k9lpb7lqr6mywpnqcz71y6qny54xlgprdp327za2gy0nnc6xj69"))))
-    (build-system python-build-system)
-    (home-page "http://github.com/verigak/progress/")
-    (synopsis "Progress reporting bars for Python")
-    (description "Progress reporting bars for Python")
-    (license license:isc)))
