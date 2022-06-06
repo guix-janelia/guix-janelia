@@ -102,27 +102,6 @@ more. As a viewer, one of the greatest strengths of ViTables is its ability to
 display very large datasets.")
     (license license:gpl3)))
 
-(define-public python-canopen
-  (package
-    (name "python-canopen")
-    (version "2.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (pypi-uri "canopen" version))
-       (sha256
-        (base32 "1nb543wb37kj95v6bhh272lm5gkpi41q3pnsl1fxlyizm2gamj5w"))))
-    (build-system python-build-system)
-    (native-inputs (list python-packaging))
-    (propagated-inputs (list python-can))
-    (home-page "")
-    (synopsis "CANopen stack implementation")
-    (description "A Python implementation of the CANopen standard. The aim of
-the project is to support the most common parts of the CiA 301 standard in a
-simple Pythonic interface. It is mainly targeted for testing and automation
-tasks rather than a standard compliant master implementation.")
-    (license license:expat)))
-
 (define-public python-progress
   (package
     (name "python-progress")
