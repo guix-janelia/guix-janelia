@@ -1,0 +1,5 @@
+(define-module (guix-janelia packages engineering)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (guix packages)
+  #:use-module (gnu packages)
+  #:use-module (gnu packages engineering))
