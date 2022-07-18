@@ -12,8 +12,9 @@
     (source (origin
               (method git-fetch)
               (uri (git-reference
-                    (url "https://github.com/alexluigit/dirvish.git")
+                    (url "https://github.com/alexluigit/dirvish")
                     (commit "af5a099bf167729448a9b834ff9b2ec618617519")))
+              (file-name (git-file-name name version))
               (sha256
                (base32
                 "0s0rkpfpkx3nafahy0b96gjfsl5h1hccrx4iwqzsafm5v8q4yphr"))))
@@ -31,7 +32,17 @@
                    "^doc/[^/]+.texinfo$"
                    "^extensions/[^/]+.el$")
        #:exclude '("^.dir-locals.el$" "^test.el$" "^tests.el$"
-                   "^[^/]+-test.el$" "^[^/]+-tests.el$")))
+                   "^[^/]+-test.el$" "^[^/]+-tests.el$")
+       #:phases
+       (modify-phases %standard-phases
+         ;; Move the extension files to the top level, which is included in
+         ;; the EMACSLOADPATH.
+         (add-after 'unpack 'move-extension-files
+           (lambda _
+             (let ((el-files (find-files "./extensions" ".*\\.el$")))
+               (for-each (lambda (f)
+                           (rename-file f (basename f)))
+                         el-files)))))))
     (home-page "https://github.com/alexluigit/dirvish")
     (synopsis "Emacs file manager based on dired mode")
     (description
@@ -39,4 +50,3 @@
 It provides multiple window layouts, always available file preview, isolated
 sessions, and a composable user interface.")
     (license license:gpl3+)))
-emacs-dirvish
