@@ -105,3 +105,21 @@ methods on modular device servers.")
      "Extends serial.Serial to add methods such as auto discovery of available serial
 ports in Linux, Windows, and Mac OS X")
     (license license:bsd-3)))
+
+(define-public python-loadstar-sensors-interface
+  (package
+    (name "python-loadstar-sensors-interface")
+    (version "0.1.0")
+    (source (origin
+              (method url-fetch)
+              (uri (pypi-uri "loadstar_sensors_interface" version))
+              (sha256
+               (base32
+                "0wn0mcg96h4m32yj569n1b7fg3g77br5ih3x0i9p9ig1037lvf46"))))
+    (build-system python-build-system)
+    (propagated-inputs (list python-serial-interface))
+    (home-page
+     "https://github.com/janelia-pypi/loadstar_sensors_interface_python")
+    (synopsis "Python interface to Loadstar Sensors USB devices.")
+    (description "Python interface to Loadstar Sensors USB devices.")
+    (license license:bsd-3)))
