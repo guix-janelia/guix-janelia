@@ -89,21 +89,18 @@ methods on modular device servers.")
 (define-public python-serial-interface
   (package
     (name "python-serial-interface")
-    (version "2.1.3")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (pypi-uri "serial_interface" version))
-       (sha256
-        (base32 "0mrdzhk7di0ka5qrhq09nlg2scygp4x9mjb06iyw1gv744q5qr9f"))))
+    (version "2.2.1")
+    (source (origin
+              (method url-fetch)
+              (uri (pypi-uri "serial_interface" version))
+              (sha256
+               (base32
+                "0l3a8aqp0s55l62qf7km06mnc560p2qgay134i8hnyps30kxllmr"))))
     (build-system python-build-system)
     (propagated-inputs (list python-pyserial))
     (home-page "https://github.com/janelia-pypi/serial_interface_python")
-    (synopsis
-     "Extends serial.Serial to add methods such as auto discovery of available serial ports in Linux, Windows, and Mac OS X")
-    (description
-     "Extends serial.Serial to add methods such as auto discovery of available serial
-ports in Linux, Windows, and Mac OS X")
+    (synopsis "Extends pyserial Serial to add convenience methods.")
+    (description "Extends pyserial Serial to add convenience methods.")
     (license license:bsd-3)))
 
 (define-public python-loadstar-sensors-interface
@@ -123,3 +120,4 @@ ports in Linux, Windows, and Mac OS X")
     (synopsis "Python interface to Loadstar Sensors USB devices.")
     (description "Python interface to Loadstar Sensors USB devices.")
     (license license:bsd-3)))
+python-serial-interface
