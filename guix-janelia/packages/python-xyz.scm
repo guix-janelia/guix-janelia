@@ -43,3 +43,28 @@ metadata, a simple, yet powerful, browsing of multidimensional data and much
 more. As a viewer, one of the greatest strengths of ViTables is its ability to
 display very large datasets.")
     (license license:gpl3)))
+
+(define-public python-plotext
+  (package
+    (name "python-plotext")
+    (version "5.0.2")
+    (source (origin
+              (method url-fetch)
+              (uri (pypi-uri "plotext" version))
+              (sha256
+               (base32
+                "1p28hdxgjhdrcwq795nqrglcp6v5cl936mbah31dqhgjk6cy5v71"))))
+    (build-system python-build-system)
+    ;; tests pass when run manually with test() function after install
+    ;; tests fail when run automatically during build with error:
+    ;; TypeError: don't know how to make test from: unix
+    (arguments
+     `(#:tests? #f))
+    (propagated-inputs (list python-pillow))
+    (home-page "https://github.com/piccolomo/plotext")
+    (synopsis "2D plotting library for Python to plot directly on a terminal")
+    (description
+     "Plotext is a Python 2D plotting library which produces
+figures directly on a terminal with syntax similar to matplotlib and can save
+plots as text or as colored html.")
+    (license license:expat)))
