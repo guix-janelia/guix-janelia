@@ -106,13 +106,13 @@ methods on modular device servers.")
 (define-public python-loadstar-sensors-interface
   (package
     (name "python-loadstar-sensors-interface")
-    (version "0.5.0")
+    (version "0.6.0")
     (source (origin
               (method url-fetch)
               (uri (pypi-uri "loadstar_sensors_interface" version))
               (sha256
                (base32
-                "1c6mch673cjj45wkr7bg78dw34n2abycgn2c9w5imfh0cjxjh1c9"))))
+                "0c0ciwxsand0pbqgf828wgsjb3m5hfzsbkcwndmivsrb424lzyl0"))))
     (build-system python-build-system)
     (propagated-inputs (list python-serial-interface
                              python-click
