@@ -106,17 +106,15 @@ methods on modular device servers.")
 (define-public python-loadstar-sensors-interface
   (package
     (name "python-loadstar-sensors-interface")
-    (version "0.6.0")
+    (version "0.9.0")
     (source (origin
               (method url-fetch)
               (uri (pypi-uri "loadstar_sensors_interface" version))
               (sha256
                (base32
-                "0c0ciwxsand0pbqgf828wgsjb3m5hfzsbkcwndmivsrb424lzyl0"))))
+                "180nnx98z3gfnb0i7nazx7h9q1rgdf9rsy1z8hf325s74dacdibk"))))
     (build-system python-build-system)
-    (propagated-inputs (list python-serial-interface
-                             python-click
-                             python-plotext))
+    (propagated-inputs (list python-click python-serial-interface))
     (home-page
      "https://github.com/janelia-pypi/loadstar_sensors_interface_python")
     (synopsis "Python interface to Loadstar Sensors USB devices.")
