@@ -6,6 +6,7 @@
   #:use-module (gnu packages python-check)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages python-web)
+  #:use-module (gnu packages python-science)
   #:use-module (gnu packages qt)
   #:use-module (gnu packages check)
   #:use-module (guix gexp)
@@ -72,3 +73,4 @@ physical quantities: the product of a numerical value and a unit of
 measurement.  It allows arithmetic operations between them and conversions from
 and to different units.")
     (license license:bsd-3)))
+python-pint
