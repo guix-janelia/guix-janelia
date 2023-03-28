@@ -35,13 +35,13 @@
 (define python-kicad-netlist-reader
   (package
     (name "python-kicad-netlist-reader")
-    (version "5.1.12")
+    (version "7.0.1")
     (source
      (origin
        (method url-fetch)
        (uri (pypi-uri "kicad_netlist_reader" version))
        (sha256
-        (base32 "0hd8qz4yysy7w4pdpf7rfp2r1kwrx6hi8qnpbnzl885s00p12c8z"))))
+        (base32 "0y228vb7ga9cj1n0f0n3hcp4y3z0ylqyzg5xlarhkw96gspkxpck"))))
     (build-system python-build-system)
     (home-page "https://github.com/janelia-pypi/kicad_netlist_reader")
     (synopsis "KiCad python module for interpreting generic netlists.")
