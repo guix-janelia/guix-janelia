@@ -32,7 +32,7 @@
      "KiCad Python module for generating bill of materials in multiple formats.")
     (license license:gpl3)))
 
-(define python-kicad-netlist-reader
+(define-public python-kicad-netlist-reader
   (package
     (name "python-kicad-netlist-reader")
     (version "7.0.1")
