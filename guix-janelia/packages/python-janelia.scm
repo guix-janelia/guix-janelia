@@ -15,13 +15,13 @@
 (define-public python-kicad-bom
   (package
     (name "python-kicad-bom")
-    (version "4.0.0")
+    (version "5.0.0")
     (source
      (origin
        (method url-fetch)
        (uri (pypi-uri "kicad_bom" version))
        (sha256
-        (base32 "1y922yjwxadhzg7gg6sif0ppjp87f3zbi278n16mj1f6sbk0sm0y"))))
+        (base32 "03li94474hnkzmig3rslkqsfri18m9cx9rf13lnxkal2c9av5h6j"))))
     (build-system python-build-system)
     (propagated-inputs (list
                         python-kicad-netlist-reader))
