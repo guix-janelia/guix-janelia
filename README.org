@@ -25,21 +25,17 @@ early to submit or inappropriate for the upstream repository.
 Add this channel to your list of channels in =~/.config/guix/channels.scm=:
 
 #+begin_src scheme
-
 (cons* (channel
         (name 'guix-janelia)
         (url "https://github.com/guix-janelia/guix-janelia.git")
         (branch "main"))
        %default-channels)
-
 #+end_src
 
 *** Update guix
 
 #+begin_src sh
-
 guix pull
-
 #+end_src
 
 ** Project Channels
@@ -49,43 +45,13 @@ Add this channel to your list of channels in =./channels.scm=:
 *** Create channels.scm in project directory
 
 #+begin_src sh
-
 guix describe -f channels > channels.scm
-
-#+end_src
-
-*** Example channels.scm
-
-Modify the commit ID to match the version of software the project needs
-
-#+begin_src scheme
-
-(list (channel
-        (name 'guix)
-        (url "https://git.savannah.gnu.org/git/guix.git")
-        (branch "master")
-        (commit
-          "16a0aea02deacd9872490f9328474a442a85380d")
-        (introduction
-          (make-channel-introduction
-            "9edb3f66fd807b096b48283debdcddccfea34bad"
-            (openpgp-fingerprint
-              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA"))))
-      (channel
-        (name 'guix-janelia)
-        (url "https://github.com/guix-janelia/guix-janelia.git")
-        (branch "main")
-        (commit
-          "2c29af558fa4d5df682985c18fe778b4345ef2fa")))
-
 #+end_src
 
 *** Example of how to use a project channels.scm
 
 #+begin_src sh
-
 guix time-machine -C channels.scm -- shell --container -m manifest.scm
-
 #+end_src
 
 * Development
@@ -99,9 +65,8 @@ Add foo package definition to python-janelia.scm
 Temporarily add foo to the bottom of python-janelia.scm
 
 #+begin_src sh
-
 guix package -f guix-janelia/packages/python-janelia.scm -p /tmp/profile
-
+guix shell --pure -p /tmp/profile
 #+end_src
 
 Remove foo from bottom of python-janelia.scm
@@ -113,5 +78,3 @@ Remove foo from bottom of python-janelia.scm
 - run yas-reload-all to reload snippets
 - run yas-insert-snippet and choose guix-commit-message-add-package
 - push changes to remote repository
-
-
