@@ -65,6 +65,10 @@ Add foo package definition to python-janelia.scm
 Temporarily add foo to the bottom of python-janelia.scm
 
 #+begin_src sh
+guix build --keep-failed -f guix-janelia/packages/python-janelia.scm
+#+end_src
+
+#+begin_src sh
 guix package -f guix-janelia/packages/python-janelia.scm -p /tmp/profile
 guix shell --pure -p /tmp/profile
 #+end_src

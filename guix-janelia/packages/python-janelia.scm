@@ -10,18 +10,22 @@
   #:use-module (guix download)
   #:use-module (guix utils)
   #:use-module (guix build-system python)
+  #:use-module (guix git-download)
   #:use-module (guix-janelia packages python-xyz))
 
 (define-public python-kicad-bom
   (package
     (name "python-kicad-bom")
-    (version "5.0.1")
+    (version "6.0.0")
     (source
      (origin
-       (method url-fetch)
-       (uri (pypi-uri "kicad_bom" version))
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/janelia-pypi/kicad_bom")
+             (commit version)))
+       (file-name (git-file-name name version))
        (sha256
-        (base32 "1r725r0ppy65ys0aq45jf74am1vai2z01xlfnzgj1ll2y12fzm35"))))
+        (base32 "0zkigqx9757s5a4i3kidrqarz7qyya6dghqsaq8x7mlk37d1g85p"))))
     (build-system python-build-system)
     (propagated-inputs (list
                         python-kicad-netlist-reader))
