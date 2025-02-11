@@ -1,6 +1,9 @@
 (define-module (guix-janelia packages python-xyz)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (gnu packages)
+  #:use-module (gnu packages admin)
+  #:use-module (gnu packages base)
+  #:use-module (gnu packages check)
   #:use-module (gnu packages python)
   #:use-module (gnu packages python-build)
   #:use-module (gnu packages python-check)
@@ -8,13 +11,34 @@
   #:use-module (gnu packages python-web)
   #:use-module (gnu packages python-science)
   #:use-module (gnu packages qt)
-  #:use-module (gnu packages check)
   #:use-module (guix gexp)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix utils)
   #:use-module (guix build-system python)
+  #:use-module (guix build-system pyproject)
   )
+
+(define-public python-nmap
+  (package
+    (name "python-nmap")
+    (version "1.9.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "python3-nmap" version))
+       (sha256
+        (base32 "0b16ni4ywylj0k24x1pi6bp83d80wvd0ri2h225gmkgm2fqcyrc4"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-simplejson nmap which))
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/nmmapper/python3-nmap")
+    (synopsis
+     "Python interface to the nmap utility for network discovery and security auditing")
+    (description
+     "This library helps use the nmap port scanner in Python, allowing
+automation of scanning tasks and reports.")
+    (license license:gpl3)))
 
 (define-public python-vitables
   (package
