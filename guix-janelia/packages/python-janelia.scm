@@ -93,13 +93,13 @@ methods on modular device servers.")
 (define-public python-serial-interface
   (package
     (name "python-serial-interface")
-    (version "2.3.0")
+    (version "2.4.3")
     (source (origin
               (method url-fetch)
               (uri (pypi-uri "serial_interface" version))
               (sha256
                (base32
-                "14c76m35n25zai42kysv4jqw93wvm6b0j79lp2nx3hww13xhjyxm"))))
+                "0flpjrzw65zd5pzzfcchl427sj7hnw2jybg4gk8ccn92qmsjz469"))))
     (build-system python-build-system)
     (propagated-inputs (list python-pyserial))
     (home-page "https://github.com/janelia-pypi/serial_interface_python")
